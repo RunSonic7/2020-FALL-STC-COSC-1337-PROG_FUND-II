@@ -43,6 +43,7 @@ int main()
    string currentPlayerName;
 
    // Start of Game
+   system("clear");
    cout << "Welcome to Tic-Tac-Toe!\n\n\n";
 
    // Get names of players.
