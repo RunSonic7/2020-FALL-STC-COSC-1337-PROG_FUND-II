@@ -1,3 +1,16 @@
+/* Filename: ticTacToe.cpp
+   Title:  Tic-Tac-Toe Game
+   
+   Name: Juan Mireles II
+   Course: COSC 1337.V01 - Programming Fundamentals II
+   Term: Fall 2020
+   Institution: South Texas College
+   Instructor: Mr. Joseph Perez
+   Date: Sunday, September 6, 2020
+   Due: Sunday, September 6, 2020 at 11:59PM CDT
+   Notes: Game without use of Classes or Structs
+*/
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -67,14 +80,14 @@ int main()
             {
                cout << "Sorry but that spot is taken, please make another selection.\n";
             }
-         } while (validGameMove == false);   
+         } while (validGameMove == false);
 
          // Reset valid Game Move, check if winner, check if draw
          validGameMove = false;
          winnerDetermined = checkIfWinnerDetermined(gameBoardMarks, currentPlayer);
          isGameAdraw = checkIfDraw(gameBoardMarks);
 
-         // Verify if real draw or board is full with winner 
+         // Verify if real draw or board is full with winner
          if (isGameAdraw == true)
          {
             if (winnerDetermined == true)
@@ -139,7 +152,7 @@ int main()
             currentPlayer = 'X';
             currentPlayerName = playerNames[0];
          }
-         
+
          // Reset board to play again
          resetGameBoard(gameBoardMarks);
          // Show Gameboard
