@@ -279,10 +279,10 @@ void gameBoard(char array[][NUM_COLS], int numRows, string name[], int Xsc, int 
         << "\n       |     |     "
         << "\n  -----+-----+-----"
         << "\n       |     |     "
-        << "\n1   " << array[1][0] << "  |  " << array[1][1] << "  |  " << array[1][2] << "  "
+        << "\n2   " << array[1][0] << "  |  " << array[1][1] << "  |  " << array[1][2] << "  "
         << "\n       |     |     "
         << "\n  -----+-----+-----"
         << "\n       |     |     "
-        << "\n1   " << array[2][0] << "  |  " << array[2][1] << "  |  " << array[2][2] << "  "
+        << "\n3   " << array[2][0] << "  |  " << array[2][1] << "  |  " << array[2][2] << "  "
         << "\n       |     |     " << endl;
 }
