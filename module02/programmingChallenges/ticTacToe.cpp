@@ -9,8 +9,11 @@ const int NUM_COLS = 3; // Number of columns in the gameboard
 int playerCurrentRow;
 int playerCurrentColumn;
 
-void gameBoard(string[][NUM_COLS], int, string[], int, int);
+// Function Prototypes
+void gameBoard(char[][NUM_COLS], int, string[], int, int);
 void validatePlayerEntries(string);
+bool checkIfWinnerDetermined(char[][NUM_COLS], char);
+bool checkIfDraw(char [][NUM_COLS]);
 
 // Function prototypes
 int main()
@@ -20,7 +23,7 @@ int main()
    string playerNames[2];
    string currentPlayerName;
    //   string gameBoardMarks[3][3] = {{"X", "X", "X"}, {"O", "O", "O"}, {"X", "O", "X"}};
-   string gameBoardMarks[3][3] = {{" ", " ", " "}, {" ", " ", " "}, {" ", " ", " "}};
+   char gameBoardMarks[3][3] = {{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
    int scoreX = 0;
    int scoreO = 0;
 
@@ -48,23 +51,83 @@ int main()
 
 
 
-do
-{
-   validatePlayerEntries(currentPlayerName);
-
-   if (gameBoardMarks[playerCurrentRow - 1][playerCurrentColumn - 1] == " ")
+   do
    {
-      
-   }
-   else 
-   {
-      cout << "Sorry but that spot is taken, please make another selection.\n";
-   }
-} while (validGameMove == false);
+      // Winner Loop
+      do
+      { // Determine if User Input is Valid and add to Game Board, loop until valid
+         validatePlayerEntries(currentPlayerName);
 
-   
+         if (gameBoardMarks[playerCurrentRow - 1][playerCurrentColumn - 1] == ' ')
+         {
+            gameBoardMarks[playerCurrentRow - 1][playerCurrentColumn - 1] = currentPlayer; // Plot Mark
+            validGameMove = true;                                                          // Valid Move
+            gameBoard(gameBoardMarks, NUM_ROWS, playerNames, scoreX, scoreO);              // Show Gameboard
+         }
+         else
+         {
+            cout << "Sorry but that spot is taken, please make another selection.\n";
+         }
+      } while (validGameMove == false);
+
+      // Reset valid Game Move, check if winner, check if draw
+      validGameMove = false;
+      winnerDetermined = checkIfWinnerDetermined(gameBoardMarks, currentPlayer);
+
+      // Determine if game is a draw
+      isGameAdraw = checkIfDraw(gameBoardMarks);
+      if (isGameAdraw == true)
+      {
+         if (winnerDetermined == true)
+         {
+            isGameAdraw = false;
+         }
+         else
+         {
+            break;
+         }
+      }
+
+   } while (winnerDetermined == false);
 
    return 0;
+}
+
+bool checkIfDraw(char marks[][NUM_COLS])
+{
+   bool isGameDraw = true;
+   for (int row = 0; row < 3; row++)
+   {
+      for (int column = 0; column < 3; column++)
+      {
+         if (marks[row][column] == ' ')
+         {
+            isGameDraw = false;
+            break;
+         }
+      }
+   }
+   return isGameDraw;
+}
+
+bool checkIfWinnerDetermined(char marks[][NUM_COLS], char currentPlayer)
+{
+
+   if ((marks[0][0] == currentPlayer && marks[0][1] == currentPlayer && marks[0][2] == currentPlayer) ||
+       (marks[1][0] == currentPlayer && marks[1][1] == currentPlayer && marks[1][2] == currentPlayer) ||
+       (marks[2][0] == currentPlayer && marks[2][1] == currentPlayer && marks[2][2] == currentPlayer) ||
+       (marks[0][0] == currentPlayer && marks[1][0] == currentPlayer && marks[2][0] == currentPlayer) ||
+       (marks[0][1] == currentPlayer && marks[1][1] == currentPlayer && marks[2][1] == currentPlayer) ||
+       (marks[0][2] == currentPlayer && marks[1][2] == currentPlayer && marks[2][2] == currentPlayer) ||
+       (marks[0][0] == currentPlayer && marks[1][1] == currentPlayer && marks[2][2] == currentPlayer) ||
+       (marks[0][2] == currentPlayer && marks[1][1] == currentPlayer && marks[2][0] == currentPlayer))
+   {
+      return true;
+   }
+   else
+   {
+      return false;
+   }
 }
 
 // Validate Player Entries Function
@@ -92,7 +155,7 @@ void validatePlayerEntries(string playerName)
       cin >> inputColumn;
 
       // Validate Row Input
-      if (inputRow >= 1 && inputRow <=3) 
+      if (inputRow >= 1 && inputRow <= 3)
       {
          validRow = true;
          currentRow = inputRow;
@@ -103,7 +166,7 @@ void validatePlayerEntries(string playerName)
       }
 
       // Validate Column Input
-      if (inputColumn >= 1 && inputColumn <=3) 
+      if (inputColumn >= 1 && inputColumn <= 3)
       {
          validColumn = true;
          currentColumn = inputColumn;
@@ -112,15 +175,14 @@ void validatePlayerEntries(string playerName)
       {
          cout << "Column Input is invalid. Please re-enter your game selection slot.\n\n";
       }
-   } while (validRow == false || validColumn == false);  // Loop until both true
+   } while (validRow == false || validColumn == false); // Loop until both true
 
    // Assign Player Entries to Array
    playerCurrentRow = inputRow;
    playerCurrentColumn = inputColumn;
-
 }
 
-void gameBoard(string array[][NUM_COLS], int numRows, string name[], int Xsc, int Osc)
+void gameBoard(char array[][NUM_COLS], int numRows, string name[], int Xsc, int Osc)
 {
    system("clear");
 
