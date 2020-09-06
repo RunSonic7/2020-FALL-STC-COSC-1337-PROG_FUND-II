@@ -10,7 +10,6 @@
    Due: Sunday, September 6, 2020 at 11:59PM CDT
    Notes: Game without use of Classes or Structs
 */
-
 #include <iostream>
 #include <string>
 using namespace std;
