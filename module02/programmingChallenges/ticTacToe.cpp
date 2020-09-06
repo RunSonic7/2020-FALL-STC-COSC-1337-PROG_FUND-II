@@ -13,7 +13,8 @@ int playerCurrentColumn;
 void gameBoard(char[][NUM_COLS], int, string[], int, int);
 void validatePlayerEntries(string);
 bool checkIfWinnerDetermined(char[][NUM_COLS], char);
-bool checkIfDraw(char [][NUM_COLS]);
+bool checkIfDraw(char[][NUM_COLS]);
+void resetGameBoard(char [][NUM_COLS]);
 
 // Function prototypes
 int main()
@@ -22,7 +23,6 @@ int main()
    // Variables required
    string playerNames[2];
    string currentPlayerName;
-   //   string gameBoardMarks[3][3] = {{"X", "X", "X"}, {"O", "O", "O"}, {"X", "O", "X"}};
    char gameBoardMarks[3][3] = {{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
    int scoreX = 0;
    int scoreO = 0;
@@ -30,7 +30,7 @@ int main()
    bool validGameMove = false;
    bool winnerDetermined = false;
    bool isGameAdraw = false;
-   string playAgain = "";
+   char playAgain = ' ';
 
    // Start of Game
    cout << "Welcome to Tic-Tac-Toe!\n\n\n";
@@ -53,46 +53,120 @@ int main()
 
    do
    {
-      // Winner Loop
+      // Play Again Loop
       do
-      { // Determine if User Input is Valid and add to Game Board, loop until valid
-         validatePlayerEntries(currentPlayerName);
-
-         if (gameBoardMarks[playerCurrentRow - 1][playerCurrentColumn - 1] == ' ')
-         {
-            gameBoardMarks[playerCurrentRow - 1][playerCurrentColumn - 1] = currentPlayer; // Plot Mark
-            validGameMove = true;                                                          // Valid Move
-            gameBoard(gameBoardMarks, NUM_ROWS, playerNames, scoreX, scoreO);              // Show Gameboard
-         }
-         else
-         {
-            cout << "Sorry but that spot is taken, please make another selection.\n";
-         }
-      } while (validGameMove == false);
-
-      // Reset valid Game Move, check if winner, check if draw
-      validGameMove = false;
-      winnerDetermined = checkIfWinnerDetermined(gameBoardMarks, currentPlayer);
-
-      // Determine if game is a draw
-      isGameAdraw = checkIfDraw(gameBoardMarks);
-      if (isGameAdraw == true)
       {
-         if (winnerDetermined == true)
+         // Winner Loop
+         do
+         { // Determine if User Input is Valid and add to Game Board, loop until valid
+            validatePlayerEntries(currentPlayerName);
+
+            if (gameBoardMarks[playerCurrentRow - 1][playerCurrentColumn - 1] == ' ')
+            {
+               gameBoardMarks[playerCurrentRow - 1][playerCurrentColumn - 1] = currentPlayer; // Plot Mark
+               validGameMove = true;                                                          // Valid Move
+               gameBoard(gameBoardMarks, NUM_ROWS, playerNames, scoreX, scoreO);              // Show Gameboard
+            }
+            else
+            {
+               cout << "Sorry but that spot is taken, please make another selection.\n";
+            }
+         } while (validGameMove == false);
+
+         // Reset valid Game Move, check if winner, check if draw
+         validGameMove = false;
+         winnerDetermined = checkIfWinnerDetermined(gameBoardMarks, currentPlayer);
+
+         // Determine if game is a draw
+         isGameAdraw = checkIfDraw(gameBoardMarks);
+
+         if (isGameAdraw == true)
          {
-            isGameAdraw = false;
+            if (winnerDetermined == true)
+            {
+               isGameAdraw = false;
+               
+            }
+            else
+            {
+               break;
+            }
+         }
+
+         // Switch player X=>O or O=>X
+         if (winnerDetermined == false)
+         {
+            if (currentPlayer == 'X')
+            {
+               currentPlayer = 'O';
+               currentPlayerName = playerNames[1];
+            }
+            else
+            {
+               currentPlayer = 'X';
+               currentPlayerName = playerNames[0];
+            }
+         }
+      } while (winnerDetermined == false);
+
+      // Winner and not a draw
+      if (winnerDetermined == true && isGameAdraw == false)
+      {
+         if (currentPlayer == 'X')
+         {
+            scoreX++;
          }
          else
          {
-            break;
+            scoreO++;
          }
+
+         // Show Gameboard
+         gameBoard(gameBoardMarks, NUM_ROWS, playerNames, scoreX, scoreO);
+
+         cout << "Congrats " << currentPlayerName << " You Win!\n\n";
       }
 
-   } while (winnerDetermined == false);
+      // Play again?
+      cout << "Would you like to play again? \nEnter Y or y for Yes.  Anykey for No: ";
+      cin >> playAgain;
+
+      // Check input from user if they want to play again.
+      if (playAgain == 'Y' || playAgain == 'y')
+      {
+         // Switch to next player mark
+         if (currentPlayer == 'X')
+         {
+            currentPlayer = 'O';
+            currentPlayerName = playerNames[1];
+         }
+         else
+         {
+            currentPlayer = 'X';
+            currentPlayerName = playerNames[0];
+         }
+         //TODO
+         resetGameBoard(gameBoardMarks);
+         // Show Gameboard
+         gameBoard(gameBoardMarks, NUM_ROWS, playerNames, scoreX, scoreO);
+      }
+   } while (playAgain == 'Y' || playAgain == 'y');
 
    return 0;
 }
 
+void resetGameBoard(char mark[][NUM_COLS])
+{
+   for (int row = 0; row < 3; row++)
+   {
+      for (int column = 0; column < 3; column++)
+      {
+         mark[row][column] = ' ';
+      }
+   }
+}
+
+// Check if game has ended in a draw
 bool checkIfDraw(char marks[][NUM_COLS])
 {
    bool isGameDraw = true;
@@ -110,6 +184,7 @@ bool checkIfDraw(char marks[][NUM_COLS])
    return isGameDraw;
 }
 
+// Determine if a player has won
 bool checkIfWinnerDetermined(char marks[][NUM_COLS], char currentPlayer)
 {
 
@@ -182,6 +257,7 @@ void validatePlayerEntries(string playerName)
    playerCurrentColumn = inputColumn;
 }
 
+// Display game board to player
 void gameBoard(char array[][NUM_COLS], int numRows, string name[], int Xsc, int Osc)
 {
    system("clear");
