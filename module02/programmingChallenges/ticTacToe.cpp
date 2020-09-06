@@ -6,10 +6,11 @@ using namespace std;
 // Constants
 const int NUM_ROWS = 3; // Number of rows in the gameboard
 const int NUM_COLS = 3; // Number of columns in the gameboard
-int playerCurrentEntries[2];
+int playerCurrentRow;
+int playerCurrentColumn;
 
 void gameBoard(string[][NUM_COLS], int, string[], int, int);
-bool validatePlayerEntries(string);
+void validatePlayerEntries(string);
 
 // Function prototypes
 int main()
@@ -45,21 +46,37 @@ int main()
    char currentPlayer = 'X';
    currentPlayerName = playerNames[0];
 
+
+
+do
+{
    validatePlayerEntries(currentPlayerName);
+
+   if (gameBoardMarks[playerCurrentRow - 1][playerCurrentColumn - 1] == " ")
+   {
+      
+   }
+   else 
+   {
+      cout << "Sorry but that spot is taken, please make another selection.\n";
+   }
+} while (validGameMove == false);
+
    
+
    return 0;
 }
 
 // Validate Player Entries Function
-bool validatePlayerEntries(string playerName)
+void validatePlayerEntries(string playerName)
 {
 
    bool validRow = false;
    bool validColumn = false;
    int currentRow = -1;
    int currentColumn = -1;
-   string inputRow;
-   string inputCol;
+   int inputRow = -1;
+   int inputColumn = -1;
 
    do
    {
@@ -72,8 +89,35 @@ bool validatePlayerEntries(string playerName)
       cin >> inputRow;
 
       cout << playerName << " please select a Column (1-3):  ";
-      cin >> inputCol;
-   } while (true);
+      cin >> inputColumn;
+
+      // Validate Row Input
+      if (inputRow >= 1 && inputRow <=3) 
+      {
+         validRow = true;
+         currentRow = inputRow;
+      }
+      else
+      {
+         cout << "Row Input is invalid. Please re-enter your game selection slot.\n";
+      }
+
+      // Validate Column Input
+      if (inputColumn >= 1 && inputColumn <=3) 
+      {
+         validColumn = true;
+         currentColumn = inputColumn;
+      }
+      else
+      {
+         cout << "Column Input is invalid. Please re-enter your game selection slot.\n\n";
+      }
+   } while (validRow == false || validColumn == false);  // Loop until both true
+
+   // Assign Player Entries to Array
+   playerCurrentRow = inputRow;
+   playerCurrentColumn = inputColumn;
+
 }
 
 void gameBoard(string array[][NUM_COLS], int numRows, string name[], int Xsc, int Osc)
