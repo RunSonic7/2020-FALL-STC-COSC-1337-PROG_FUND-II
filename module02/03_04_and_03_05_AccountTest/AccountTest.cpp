@@ -8,7 +8,7 @@
    Instructor: Mr. Joseph Perez
    Date: Saturday, September 5, 2020
    Due: Sunday, September 6, 2020
-   Notes: Figure 3.5
+   Notes: Figure 3.5, Use of {} did not work. Used ()
 */
 
 #include<iostream>
