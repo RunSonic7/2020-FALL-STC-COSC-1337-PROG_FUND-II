@@ -232,10 +232,10 @@ void validatePlayerEntries(string playerName)
       currentRow = -1;
       currentColumn = -1;
 
-      cout << playerName << " please select a Row (1-3):  ";
+      cout << "\n" << playerName << " please select a Row (1-3):  ";
       cin >> inputRow;
 
-      cout << playerName << " please select a Column (1-3):  ";
+      cout << "Now, please select a Column (1-3):  ";
       cin >> inputColumn;
 
       // Validate Row Input
