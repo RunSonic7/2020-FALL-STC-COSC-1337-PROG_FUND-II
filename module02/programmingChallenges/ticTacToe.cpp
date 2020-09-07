@@ -9,6 +9,8 @@
    Date: Sunday, September 6, 2020
    Due: Sunday, September 6, 2020 at 11:59PM CDT
    Notes: Game without use of Classes or Structs
+   Sources: File Code from myself for C# Survey of Programming Languages 
+            refactred for C++. File included in directory for reference. 
 */
 #include <iostream>
 #include <string>
@@ -232,11 +234,46 @@ void validatePlayerEntries(string playerName)
       currentRow = -1;
       currentColumn = -1;
 
-      cout << "\n" << playerName << " please select a Row (1-3):  ";
-      cin >> inputRow;
+      cout << "\n"
+           << playerName << " please select a Row (1-3):  ";
+
+      // Validate User input is in fact an integer.
+      while (true) // Keep looping until valid number is input then break loop
+      {
+         if (cin >> inputRow)
+         {
+            // Input is a valid number
+            break;
+         }
+         else
+         {
+            // Input is not a valid number.
+            cout << "Invalid Input! Please input a numerical value." << endl;
+            cin.clear(); // Clear input stream
+            while (cin.get() != '\n')
+               ; // Prevent Enter from affecting input
+         }
+      }
 
       cout << "Now, please select a Column (1-3):  ";
-      cin >> inputColumn;
+
+      // Validate User input is in fact an integer.
+      while (true) // Keep looping until valid number is input then break loop
+      {
+         if (cin >> inputColumn)
+         {
+            // Input is a valid number
+            break;
+         }
+         else
+         {
+            // Input is not a valid number.
+            cout << "Invalid Input! Please input a numerical value." << endl;
+            cin.clear(); // Clear input stream
+            while (cin.get() != '\n')
+               ; // Prevent Enter from affecting input
+         }
+      }
 
       // Validate Row Input
       if (inputRow >= 1 && inputRow <= 3)
