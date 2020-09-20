@@ -6,7 +6,6 @@
    Term: Fall 2020
    Institution: South Texas College
    Instructor: Mr. Joseph Perez
-   Date: 
    Due: 
    Notes: 
 */
