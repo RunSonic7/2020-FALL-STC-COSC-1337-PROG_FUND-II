@@ -18,31 +18,34 @@
 
 class Coin
 {
-private:
-    std::string sideUp; // Private member
+    private:
+        std::string sideUp; // Private member
 
-public:
-    // Constructor and Member function prototypes
-    Coin() {
-        srand(time(0)); // Psuedo-random generator with seed
-    toss();   
-    };
-    void toss();
-    std::string getSideUp();
+    public:
+        // Constructor and Member function prototypes
+        Coin() {  
+        };
+        void toss();
+        std::string getSideUp();
+
+        // Inline since "short"
+        // Return the value of sideUp heads/tails.
+        std::string getSideUp()
+        {   return sideUp;   }
 };
 
 // Constructor, initialize sideUp member variable with heads/tails.
 // By callling toss()
-// Coin::Coin()
-// {
-//     srand(time(0)); // Psuedo-random generator with seed
-//     toss();         // Initial Toss
-// };
+Coin::Coin()
+{
+    srand(time(0)); // Psuedo-random generator with seed
+    toss();         // Initial Toss
+};
 
 // Toss the coin to determine heads/tails.
 void Coin::toss()
 {
-    // Modulus number so Either 0 = heads; 1 = tails
+    // Modulus 2 of number so Either 0 = heads; 1 = tails
     int side = rand() % 2;
 
     if (side == 0)
@@ -55,8 +58,4 @@ void Coin::toss()
     }
 }
 
-// Return the value of sideUp heads/tails.
-std::string Coin::getSideUp()
-{
-    return sideUp;
-}
+
