@@ -23,10 +23,8 @@ class Coin
 
     public:
         // Constructor and Member function prototypes
-        Coin() {  
-        };
+        Coin();
         void toss();
-        std::string getSideUp();
 
         // Inline since "short"
         // Return the value of sideUp heads/tails.
