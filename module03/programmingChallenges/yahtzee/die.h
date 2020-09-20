@@ -16,15 +16,15 @@
 
 class Die
 {
-private:
-   int sideUp;
-   int sides;
+   private:
+      int sideUp;
+      int sides;
 
-public:
-   Die();
-   Die(int);
-   void roll();
-   int returnSideUp();
+   public:
+      Die();
+      Die(int);
+      void roll();
+      int returnSideUp();
 };
 
 Die::Die()
@@ -33,6 +33,7 @@ Die::Die()
    sides = 6;
    sideUp = rand() % sides + 1;
 }
+
 Die::Die(int s)
 {
    srand(time(0));
