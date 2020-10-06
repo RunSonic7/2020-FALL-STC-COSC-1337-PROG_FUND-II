@@ -83,6 +83,7 @@ int main()
    }
 
    // Print Array to User
+   cout << "\nArray Contents:\n";
    for (int i = 0; i < arrayIncrementer; i++)
    {
       cout << inputDataFinal[i] << " ";
