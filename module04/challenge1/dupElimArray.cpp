@@ -20,7 +20,7 @@
 #include <iostream>
 #include <array> // Required for use of arrays
 #include <string>
-#include "Validation.h"
+#include "validation.h"
 using namespace std;
 
 int main()
