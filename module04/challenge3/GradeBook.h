@@ -15,6 +15,7 @@
 #include <array>
 #include <iostream>
 #include <iomanip> // parameterized stream manipulators
+#include <algorithm>
 
 // StudentInfo Struct definition
 struct StudentInfo
