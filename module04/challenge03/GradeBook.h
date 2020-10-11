@@ -1,5 +1,5 @@
-/* Filename: realGradeBook.cpp
-   Title:  Case Study GradeBook class modified with struct StudentInfo
+/* Filename: GradeBook.h
+   Title:  Implementation file GradeBook.h for realGradeBook.cpp
    
    Name: Juan Mireles II
    Course: COSC 1337.V01 - Programming Fundamentals II
@@ -8,7 +8,7 @@
    Instructor: Mr. Joseph Perez
    Due: Sunday, October 4, 2020
    Notes: Fig. 7.13: GradeBook.
-         Definition of class GradeBook that uses an array to store test grades.
+          Definition of class GradeBook that uses an array to store test grades.
 */
 
 #include <string>
