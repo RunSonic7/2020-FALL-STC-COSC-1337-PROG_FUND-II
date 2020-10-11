@@ -22,6 +22,7 @@
           Then add the structure and modify the code to complete this challenge.
 */
 
+#include <iostream>
 #include <array>
 #include "GradeBook.h" // GradeBook class  definition
 using namespace std;
