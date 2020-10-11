@@ -33,23 +33,20 @@ int main()
        87, 68, 94, 100, 83, 78, 85, 91, 76, 87};
    // Array of student names
    const array<string, GradeBook::students> studentNames{
-       "Ben", "Kristina", "Ivan", "Pablo", "Juan", "Mark", "Jesus", "Luis", "Bernie", "Jose"};
-   //const int grades[GradeBook::students] = {87, 68, 94, 100, 83, 78, 85, 91, 76, 87};
-   //const string names[GradeBook::students] = {"Ben", "Kristina", "Ivan", "Pablo", "Juan", "Mark", "Jesus", "Luis", "Bernie", "Jose"};
-
+       "Ben", "Luis", "Ivan", "Pablo", "Juan", "Mark", "Jesus", "Luis", "Bernie", "Jose"};
+   // String name of gradebook course
    string courseName{"CS101 Introduction to C++ Programming"};
+
+   // Constructor
    GradeBook myGradeBook(courseName, grades, studentNames);
+
+   // Process
    myGradeBook.displayMessage();
    myGradeBook.processGrades();
+   myGradeBook.processData(); // Fills struct instance with data, sorts, displays sorted data
+   myGradeBook.displaySortedData();
 
-   myGradeBook.processData();
-   sort(myGradeBook.studentInfo, myGradeBook.studentInfo + 10, compareNames);
-
-   for (int i = 0; i < 10; i++)
-   {
-      cout << myGradeBook.studentInfo[i].studentName << "\t\t" << myGradeBook.studentInfo[i].grade << "\t\t"
-           << endl;
-   }
+   return 0;
 }
 
 // References:
