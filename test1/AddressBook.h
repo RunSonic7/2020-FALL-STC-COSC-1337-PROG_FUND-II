@@ -26,7 +26,7 @@ class AddressBook
 {
 
 public:
-   static const int MAXSIZE = 3;
+   static const int MAXSIZE = 50;
 
    void addName(std::string, std::string, std::string);
    static bool compareNames(PersonInfo, PersonInfo);
