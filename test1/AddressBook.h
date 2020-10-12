@@ -90,8 +90,7 @@ void AddressBook::displayAllEntries()
 
 void AddressBook::displayAllFoundEntries()
 {
-   std::cout << "Found Entries" << std::endl;
-   std::cout << std::left << std::setw(15) << "First Name"
+   std::cout << std::left << std::setw(15) << "\nFirst Name"
              << std::left << std::setw(15) << "Last Name"
              << std::left << std::setw(15) << "Phone Number\n";
 
