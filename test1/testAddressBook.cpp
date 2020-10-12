@@ -119,7 +119,7 @@ int main()
          {
             for (size_t index = 0; index < 5; index++)
             {
-               cout << "Entry 1:\n";
+               cout << "Entry " << index + 1 << ":\n";
                cout << "Enter a First name: ";
                cin >> firstName;
 
