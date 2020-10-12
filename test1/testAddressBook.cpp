@@ -47,6 +47,7 @@ int main()
    {
       do
       {
+         // Main menu - Ask user for input option
          cout << "\n+-------------------------+\n"
                  "| ADDRESSBOOK : MAIN MENU |\n"
                  "+-------------------------+\n\n";
@@ -76,8 +77,8 @@ int main()
          cout << "\n+-------------------------+\n"
                  "| ADDRESSBOOK : ADD ENTRY |\n"
                  "+-------------------------+\n\n";
-         //cout << addressBook.getPositionIndex() << endl; --- DELETE
-         // Validate there is still room in the Adress book
+
+             // Validate there is still room in the Adress book
          if (addressBook.getPositionIndex() >= AddressBook::MAXSIZE)
          {
             cout << "\nAddress book is full. Only " << AddressBook::MAXSIZE << " entries allowed.\n"
@@ -135,6 +136,7 @@ int main()
       // Option 3 - Search
       else if (validation.getUserInput() == 3)
       {
+         validation.setIsValidEntryFalse(); // Resets validation to false
          cout << "\n+----------------------+\n"
                  "| ADDRESSBOOK : FINDER |\n"
                  "+----------------------+\n\n";
@@ -147,14 +149,13 @@ int main()
          cout << "Enter a Last name: ";
          cin >> lastName;
 
-         // Binary Search
+         // Perform Search and Display Info to user
          addressBook.searchData(firstName, lastName);
-
-         //cout << addressBook.getIsNameFound() << endl;
       }
       // Option 4 - Dispaly Entire Address Book sorted by last name
       else if (validation.getUserInput() == 4)
       {
+         validation.setIsValidEntryFalse(); // Resets validation to false
          cout << "\n+---------------------------+\n"
                  "| ADDRESSBOOK : ALL ENTRIES |\n"
                  "+---------------------------+\n\n";
@@ -166,9 +167,6 @@ int main()
       {
          cout << "Address Book closed.\n";
       }
-
-      //validation.setIsValidEntryFalse();  // Reset valid entry to false
-   } while (validation.getUserInput() != 5);
-
+   } while (validation.getUserInput() != 5); // Loop until user uses Option 5 to exit
    return 0;
 }

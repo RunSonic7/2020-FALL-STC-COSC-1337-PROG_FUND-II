@@ -79,6 +79,7 @@ void AddressBook::displayAllEntries()
    std::cout << std::left << std::setw(15) << "First Name"
              << std::left << std::setw(15) << "Last Name"
              << std::left << std::setw(15) << "Phone Number\n";
+
    for (size_t i = 0; i < positionIndex; i++)
    {
       std::cout << std::left << std::setw(15) << personInfo[i].personFirstName
