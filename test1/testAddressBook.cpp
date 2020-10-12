@@ -22,6 +22,7 @@
           main, display the names in the address book.
 */
 #include <iostream>
+#include <string>
 #include "AddressBook.h"
 #include "Validation.h"
 using namespace std;
@@ -105,10 +106,10 @@ int main()
                  "| ADDRESSBOOK : ADD 5 ENTRIES |\n"
                  "+-----------------------------+\n\n";
 
-         // Validate there is still room in the Adress book (Max would be 5 less the MAX SIZE)
+         // Validate there is still room in the Address book (Max would be 5 less the MAX SIZE)
          if (addressBook.getPositionIndex() >= AddressBook::MAXSIZE - 5)
          {
-            cout << "\nAddress book unable to add 5 more entires. \nOnly "
+            cout << "\nAddress book unable to add 5 more entries. \nOnly max"
                  << AddressBook::MAXSIZE << " entries allowed.\nPlease use Option 1 to add more entries."
                  << endl;
          }
