@@ -30,7 +30,7 @@ class GradeBook
 public:
    // constant number of students who took the test
    static const size_t students{10}; // note public data
-   StudentInfo studentInfo[10];
+   StudentInfo studentInfo[students];
 
    // constructor initializes courseName and grades array
    GradeBook(const std::string &name,
@@ -38,6 +38,7 @@ public:
              const std::array<std::string, students> &studentNamesArray)
        : courseName{name}, grades{gradesArray}, studentNames{studentNamesArray}
    {
+      
    }
 
    // Compare structs, static so can be seen in other functions
