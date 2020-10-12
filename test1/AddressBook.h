@@ -1,3 +1,14 @@
+/* Filename: AddressBook.h
+   Title:  Implementation file AddressBook.h for testAddressBook.cpp
+   
+   Name: Juan Mireles II
+   Course: COSC 1337.V01 - Programming Fundamentals II
+   Term: Fall 2020
+   Institution: South Texas College
+   Instructor: Mr. Joseph Perez
+   Due: Sunday, October 11, 2020
+   Notes: Implementation file AddressBook.h for testAddressBook.cpp
+*/
 #include <iostream>
 #include <string>
 #include <array>

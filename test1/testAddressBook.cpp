@@ -1,12 +1,12 @@
-/* Filename: 
-   Title:  
+/* Filename: testAddressBook.cpp
+   Title:  Address Book Program for Test 1
    
    Name: Juan Mireles II
    Course: COSC 1337.V01 - Programming Fundamentals II
    Term: Fall 2020
    Institution: South Texas College
    Instructor: Mr. Joseph Perez
-   Due: 
+   Due: Sunday, October 11, 2020
    Notes: Create a class called AddressBook. It should be able to store a
           maximum of 50 names and 50 phone numbers (make an array of structures
           in the object or two arrays). It should contain a method called
