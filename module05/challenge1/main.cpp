@@ -70,6 +70,8 @@ int main()
 
     // Delete allocated memory
     gradeBook.~GradeBook();
+
+    return 0;
 }
 
 void displayTitle()
