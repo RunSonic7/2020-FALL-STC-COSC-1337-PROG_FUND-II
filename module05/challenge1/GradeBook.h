@@ -26,11 +26,7 @@ private:
 
 public:
 
-    ~GradeBook()
-    {
-        delete[] testScores;
-        testScores = 0;
-    }
+    ~GradeBook();
 
     void validateInput(std::string);
     bool checkIfNumber(std::string);
@@ -55,6 +51,12 @@ public:
     void castToInt(std::string input)
     {  userInputCast = stoi(input);  }
 };
+
+GradeBook::~GradeBook()
+{
+    delete[] testScores;
+    testScores = 0;
+}
 
 void GradeBook::validateInput(std::string input)
 {
