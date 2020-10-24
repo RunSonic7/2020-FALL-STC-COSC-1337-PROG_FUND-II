@@ -96,13 +96,14 @@ bool GradeBook::checkIfNumber(std::string input)
 
 void GradeBook::displayData()
 {
+    std::cout << "\n ----- Grade Report -----\n";
     calculateAverage();
     for (int index = 0; index < size; index++)
     {
-        std::cout << *(testScores + index) << std::endl;
+        std::cout << "Grade " << index + 1 << ": " << *(testScores + index) << std::endl;
     }
-    std::cout << size << std::endl;
-    std::cout << "The average is: " << average << std::endl;
+    //std::cout << size << std::endl;
+    std::cout << "\nThe average is " << average << std::endl;
 }
 
 void GradeBook::calculateAverage()
