@@ -17,6 +17,7 @@ int main()
 {
     GradeBook gradeBook;
     string size;
+    string grade;
 
     do
     {
@@ -27,12 +28,26 @@ int main()
     } while (gradeBook.getIsValidInput() == false);
 
     // Create Gradebook Array via pointer
+    gradeBook.setSize();    // Set size of gradebook
     gradeBook.createGradebookArray();
 
     // As user to enter test scores;
     for (int index = 0; index < gradeBook.getGradeBookSize(); index++) {
-        cout << "Enter grade number " << (index + 1) << ": ";
-        cin >> gradeBook.testScores[index];
+
+        do
+        {
+            cout << "Enter grade number " << (index + 1) << ": ";
+
+            cin >> grade;
+
+            // Validate if grade is valid input
+            gradeBook.validateInput(grade);
+
+        } while (gradeBook.getIsValidInput() == false);
+
+        // Store in testScores dynamic array.
+        gradeBook.testScores[index] = stoi(grade);
+
     }
 
     // Display grades and average to user;

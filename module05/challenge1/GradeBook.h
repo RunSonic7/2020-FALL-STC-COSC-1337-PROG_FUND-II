@@ -31,7 +31,7 @@ public:
         { // Number has already been casted
             if (userInputCast > 0) {
                 isValidInput = true;
-                size = userInputCast;
+
             }
             else
             {
@@ -57,6 +57,11 @@ public:
         testScores = new int[size];
     }
 
+    void setSize()
+    {
+        size = userInputCast;
+    }
+    
     bool getIsValidInput()
     {
         return isValidInput;
@@ -76,27 +81,27 @@ public:
         return true;
     };
 
-void displayData()
-{
-    calculateAverage();
-    for (int index = 0; index < size; index++)
+    void displayData()
     {
-        std::cout << *(testScores + index) << std::endl;
+        calculateAverage();
+        for (int index = 0; index < size; index++)
+        {
+            std::cout << *(testScores + index) << std::endl;
+        }
+        std::cout << size << std::endl;
+        std::cout << "The average is: " << average << std::endl;
     }
-    std::cout << size << std::endl;
-    std::cout << "The average is: " << average << std::endl;
-}
 
-void calculateAverage()
-{
-    for (int index = 0; index < size; index++)
+    void calculateAverage()
     {
-        double sum;
-        sum += *(testScores + index);
-        average = sum / size;
+        for (int index = 0; index < size; index++)
+        {
+            double sum;
+            sum += *(testScores + index);
+            average = sum / size;
+        }
+
     }
-    
-}
     void castToInt(std::string input)
     {
         userInputCast = stoi(input);
