@@ -14,6 +14,7 @@
 class GradeBook
 {
 private:
+
     int size;
     std::string userInput;
     int userInputCast;
@@ -24,51 +25,63 @@ private:
 
 public:
 
-    void validateInput(std::string);
+    void validateInputSize(std::string);
+    void validateInputGrade(std::string);
     bool checkIfNumber(std::string);
     void displayData(int*);
     void calculateAverage(int*);
 
     void modifyArray(int index, int grade, int* array)
-    {
-        *(array + index) = grade;
-    }
+    {  *(array + index) = grade;  }
 
     int getGradeBookSize()
-    {
-        return size;
-    }
+    {  return size;  }
 
     // Return dynamic array created
     int* createGradebookArray()
-    {
-        return new int[size];
-    }
+    {  return new int[size];  }
 
     void setSize()
-    {
-        size = userInputCast;
-    }
+    {  size = userInputCast;  }
 
     bool getIsValidInput()
-    {
-        return isValidInput;
-    }
+    {  return isValidInput;  }
 
     void castToInt(std::string input)
-    {
-        userInputCast = stoi(input);
-    }
+    {  userInputCast = stoi(input);  }
 };
 
-void GradeBook::validateInput(std::string input)
+void GradeBook::validateInputSize(std::string input)
 {
     // Check if a positive number
     isNumber = checkIfNumber(input);
 
     if (isNumber == true)
-    { // Number has already been casted
+    { // Number has already been casted, cannot be 0
         if (userInputCast > 0) {
+            isValidInput = true;
+        }
+        else
+        {
+            std::cout << "You did not input a valid entry. Please try again.\n" << std::endl;
+            isValidInput = false;
+        }
+    }
+    else
+    {
+        std::cout << "You did not input a valid entry. Please try again.\n" << std::endl;
+        isValidInput = false;
+    }
+}
+
+void GradeBook::validateInputGrade(std::string input)
+{
+    // Check if a positive number can be 0
+    isNumber = checkIfNumber(input);
+
+    if (isNumber == true)
+    { // Number has already been casted
+        if (userInputCast >= 0) {
             isValidInput = true;
         }
         else

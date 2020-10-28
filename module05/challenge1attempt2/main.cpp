@@ -28,61 +28,61 @@ void displayTitle();
 
 int main()
 {
-    // Variables
-    GradeBook gradeBook;
-    int* testScores;
-    string size;
-    string grade;
+   // Variables
+   GradeBook gradeBook;
+   int* testScores;
+   string size;
+   string grade;
 
-    displayTitle(); // Title ASCII Art
+   displayTitle(); // Title ASCII Art
 
-    do
-    {
-        // Ask User 
-        cout << "How many test scores do you have to input?  ";
-        cin >> size;
-        gradeBook.validateInput(size);
+   do
+   {
+      // Ask User 
+      cout << "How many test scores do you have to input?  ";
+      cin >> size;
+      gradeBook.validateInput(size);
 
-    } while (gradeBook.getIsValidInput() == false);
+   } while (gradeBook.getIsValidInput() == false);
 
-    // Create Gradebook Array via pointer
-    gradeBook.setSize();    // Set size of gradebook
-    testScores = gradeBook.createGradebookArray();
+   // Create Gradebook Array via pointer
+   gradeBook.setSize();    // Set size of gradebook
+   testScores = gradeBook.createGradebookArray();
 
-    // As user to enter test scores, validate, reask if invalid, add to dynamic array.
-    for (int index = 0; index < gradeBook.getGradeBookSize(); index++)
-    {
-        do
-        {
-            cout << "Enter grade number " << (index + 1) << ": ";
-            cin >> grade;
+   // As user to enter test scores, validate, reask if invalid, add to dynamic array.
+   for (int index = 0; index < gradeBook.getGradeBookSize(); index++)
+   {
+      do
+      {
+         cout << "Enter grade number " << (index + 1) << ": ";
+         cin >> grade;
 
-            // Validate if grade is valid input
-            gradeBook.validateInput(grade);
+         // Validate if grade is valid input
+         gradeBook.validateInput(grade);
 
-        } while (gradeBook.getIsValidInput() == false);
+      } while (gradeBook.getIsValidInput() == false);
 
-        // Store in testScores dynamic array.
-        gradeBook.modifyArray(index, stoi(grade), testScores);
-    }
+      // Store in testScores dynamic array.
+      gradeBook.modifyArray(index, stoi(grade), testScores);
+   }
 
-    // Display grades and average to user;
-    gradeBook.displayData(testScores);
+   // Display grades and average to user;
+   gradeBook.displayData(testScores);
 
-    // Delete allocated memory
-    delete[] testScores;
-    testScores = 0;
+   // Delete allocated memory
+   delete[] testScores;
+   testScores = 0;
 
-    return 0; /* indicates successful termination */
+   return 0; /* indicates successful termination */
 } /* end main */
 
 void displayTitle()
 {
-    cout << " _____  _                _____                   _       ______                _\n"
-        "|_   _|| |              |  __ \\                 | |      | ___ \\              | |   \n"
-        "  | |  | |__    ___     | |  \\/ _ __   __ _   __| |  ___ | |_/ /  ___    ___  | | __\n"
-        "  | |  | '_ \\  / _ \\    | | __ | '__| / _` | / _` | / _ \\| ___ \\ / _ \\  / _ \\ | |/ /\n"
-        "  | |  | | | ||  __/    | |_\\ \\| |   | (_| || (_| ||  __/| |_/ /| (_) || (_) ||   < \n"
-        "  \\_/  |_| |_| \\___|     \\____/|_|    \\__,_| \\__,_| \\___|\\____/  \\___/  \\___/ |_|\\_\\"
-        "\n\n\n";
+   cout << " _____  _                _____                   _       ______                _\n"
+      "|_   _|| |              |  __ \\                 | |      | ___ \\              | |   \n"
+      "  | |  | |__    ___     | |  \\/ _ __   __ _   __| |  ___ | |_/ /  ___    ___  | | __\n"
+      "  | |  | '_ \\  / _ \\    | | __ | '__| / _` | / _` | / _ \\| ___ \\ / _ \\  / _ \\ | |/ /\n"
+      "  | |  | | | ||  __/    | |_\\ \\| |   | (_| || (_| ||  __/| |_/ /| (_) || (_) ||   < \n"
+      "  \\_/  |_| |_| \\___|     \\____/|_|    \\__,_| \\__,_| \\___|\\____/  \\___/  \\___/ |_|\\_\\"
+      "\n\n\n";
 }
