@@ -41,7 +41,7 @@ int main()
       // Ask User 
       cout << "How many test scores do you have to input?  ";
       cin >> size;
-      gradeBook.validateInput(size);
+      gradeBook.validateInputSize(size);
 
    } while (gradeBook.getIsValidInput() == false);
 
@@ -58,7 +58,7 @@ int main()
          cin >> grade;
 
          // Validate if grade is valid input
-         gradeBook.validateInput(grade);
+         gradeBook.validateInputGrade(grade);
 
       } while (gradeBook.getIsValidInput() == false);
 
