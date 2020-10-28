@@ -30,6 +30,7 @@ int main()
 {
     // Variables
     GradeBook gradeBook;
+    int* testScores;
     string size;
     string grade;
 
@@ -46,7 +47,7 @@ int main()
 
     // Create Gradebook Array via pointer
     gradeBook.setSize();    // Set size of gradebook
-    gradeBook.createGradebookArray();
+    testScores = gradeBook.createGradebookArray();
 
     // As user to enter test scores, validate, reask if invalid, add to dynamic array.
     for (int index = 0; index < gradeBook.getGradeBookSize(); index++)
@@ -62,14 +63,15 @@ int main()
         } while (gradeBook.getIsValidInput() == false);
 
         // Store in testScores dynamic array.
-        gradeBook.modifyArray(index, stoi(grade));
+        gradeBook.modifyArray(index, stoi(grade), testScores);
     }
 
     // Display grades and average to user;
-    gradeBook.displayData();
+    gradeBook.displayData(testScores);
 
     // Delete allocated memory
-    gradeBook.~GradeBook();
+    delete[] testScores;
+    testScores = 0;
 
     return 0; /* indicates successful termination */
 } /* end main */
