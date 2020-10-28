@@ -30,7 +30,7 @@ int main()
 {
    // Variables
    GradeBook gradeBook;
-   int* testScores;
+   int* testScores = nullptr;
    string size;
    string grade;
 
