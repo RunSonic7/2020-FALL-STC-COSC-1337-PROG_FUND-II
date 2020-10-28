@@ -57,7 +57,7 @@ int main()
       do
       {
          cin.ignore(); // Flush Buffer
-         cout << "Enter Student name: ";
+         cout << "\nEnter Student name: ";
          getline(cin, studentName);
 
          cout << "Enter grade number " << (index + 1) << ": ";
