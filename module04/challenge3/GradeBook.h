@@ -36,7 +36,7 @@ public:
    GradeBook(const std::string &name,
              const std::array<int, students> &gradesArray,
              const std::array<std::string, students> &studentNamesArray)
-       : courseName{name}, grades{gradesArray}, studentNames{studentNamesArray}
+       : courseName{name}, grades(gradesArray), studentNames(studentNamesArray)
    {
       
    }
