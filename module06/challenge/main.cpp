@@ -56,7 +56,7 @@ int main()
 	displayRational(fraction1);
 
 	// Prompt user to enter second rational number
-	cout << "\nEnter a rational Number2" << endl;
+	cout << "\nEnter a second rational number: " << endl;
 	cout << "Numerator: ";
 	cin >> userInputNumerator;
 
