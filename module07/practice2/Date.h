@@ -1,4 +1,14 @@
-// Date class definition with overloaded increment operators
+/* Filename: Date.h
+   Title:  Date class definition with overloaded increment operators
+
+   Name: Juan Mireles II
+   Course: COSC 1337.V01 - Programming Fundamentals II
+   Term: Fall 2020
+   Institution: South Texas College
+   Instructor: Mr. Joseph Perez
+   Due: Sunday, November 8, 2020
+   Notes: Date class definition with overloaded increment operators
+*/
 #ifndef DATE_H
 #define DATE_H
 

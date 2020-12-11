@@ -1,5 +1,15 @@
-// Fig. 10.3: PhoneNumber.h
-// PhoneNumber class definition
+/* Filename: PhoneNumber.h
+   Title:  Demonstrating class PhoneNumber's overloaded stream inserting
+           and stream extraction operations. 
+
+   Name: Juan Mireles II
+   Course: COSC 1337.V01 - Programming Fundamentals II
+   Term: Fall 2020
+   Institution: South Texas College
+   Instructor: Mr. Joseph Perez
+   Due: Sunday, November 8, 2020
+   Notes: PhoneNumber class definition
+*/
 #ifndef PHONENUMBER_H
 #define PHONENUMBER_H
 

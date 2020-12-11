@@ -1,6 +1,15 @@
-// main.cpp
-// Demonstrating class PhoneNumber's overloaded stream inserting
-// and stream extraction operations. 
+/* Filename: main.cpp
+   Title:  Demonstrating class PhoneNumber's overloaded stream inserting
+           and stream extraction operations. 
+
+   Name: Juan Mireles II
+   Course: COSC 1337.V01 - Programming Fundamentals II
+   Term: Fall 2020
+   Institution: South Texas College
+   Instructor: Mr. Joseph Perez
+   Due: Sunday, November 8, 2020
+   Notes:
+*/
 #include <iostream>
 #include "PhoneNumber.h"
 using namespace std;

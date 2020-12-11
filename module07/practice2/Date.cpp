@@ -1,5 +1,14 @@
-// Fig. 10.7: Date.cpp
-// Date class member- and friend-function definitions.
+/* Filename: Date.cpp
+   Title:  Date class member- and friend-function definitions.
+
+   Name: Juan Mireles II
+   Course: COSC 1337.V01 - Programming Fundamentals II
+   Term: Fall 2020
+   Institution: South Texas College
+   Instructor: Mr. Joseph Perez
+   Due: Sunday, November 8, 2020
+   Notes:
+*/
 #include <iostream>
 #include <string>
 #include "Date.h"
