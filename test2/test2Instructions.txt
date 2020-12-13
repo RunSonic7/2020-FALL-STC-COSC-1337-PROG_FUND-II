@@ -1,0 +1,30 @@
+Create a class called ClassRoom.  When the object is created, the
+          programmer can specify the maximum number of students that will be in
+          the classroom along with the name of the class (e.g. COSC-1337.V01).
+          If the programmer does not specify the number of students or the name
+          of the class, the class will assign a default number of students and
+          a default name of the class.
+
+          The class should have a method called addName that will take a
+          firstName, lastName and Student ID of a student (you may use structure).
+          There should be a method called findName that will take a string for
+          the ID number and display the first and last name of the student if
+          found in the list; otherwise, return "Student not enrolled".  The
+          class should have a method called display to show the name of the
+          class, the number of studnets and the student names sorted by last
+          name. There should be an overloaded operator (+ plus sign) where it
+          will combine the number of students and the list of the students.
+          So if one class has 10 students and the other class has 15 students,
+          when the two classes are added together class3 = class2 + class1, the
+          new class will have 35 students with the names of the students in both
+          classes. (You will need to use dynamic arrays).
+
+          Divide the class into the header and implementation files.
+
+          Create a driver program that will test your class. Inside the main,
+          create three ClassRooms.  Create 2 ClassRooms with 5 students each.
+          Use the operator to add two classes into the 3rd ClassRoom.  In the
+          driver, look for a name in any of the ClassRooms and test if a name
+          does not exist.  Finally the driver should display the 3 ClassRooms.
+          (Name of the class, number of students and the name of the students.)
+          You should have the sort inside the class ClassRoom.
