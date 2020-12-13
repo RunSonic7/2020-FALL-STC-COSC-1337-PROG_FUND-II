@@ -1,6 +1,7 @@
 #include <iostream>
 #include <array>
 #include <algorithm>
+#include <iomanip>
 
 struct StudentInfo
 {
@@ -18,17 +19,17 @@ private:
 
 public:
 
-    ClassRoom(int num = 10, std::string name = "CLAS-0101.X99")
+    ClassRoom(int num = 5, std::string name = "CLAS-0101.X99")
     {
         numberStudents = num;
         className = name;
         roster = createRoster();
     }
 
-    ~ClassRoom() // FIX THIS!
+    ~ClassRoom()
     {
-        //delete roster;
-        //roster = 0;
+        std::cout << "Destructor is Run" << std::endl;
+        delete [] roster;
     }
 
     StudentInfo* createRoster()
@@ -46,15 +47,6 @@ public:
         return className;
     }
 
-    // Methods to add
-    void addName(StudentInfo info, int index)
-    {
-        (roster + index)->firstName = info.firstName;
-        (roster + index)->lastName = info.lastName;
-        (roster + index)->studentID = info.studentID;
-    }
-
-    // Methods to add
     void addName(std::string first, std::string last, std::string ID, int index)
     {
         (roster + index)->firstName = first;
@@ -67,13 +59,6 @@ public:
         return roster;
     }
 
-    // void printClassRosterInfo()
-    // {
-    //     for (int i = 0; i < getNumberStudents(); i++)
-    //     {
-    //         std::cout << (roster + i)->firstName << " " << (roster + i)->lastName << " " << (roster + i)->studentID << std::endl;
-    //     }
-    // }
 
     void findName(std::string id)
     {
@@ -105,16 +90,18 @@ public:
         }
     }
 
-
-
     void printClassRosterInfo()
     {
         bubbleSort(roster, getNumberStudents());
 
+        std::cout << "===== Class Roster for " << getClassName() << " =====\nNumber of students enrolled: " << getNumberStudents() << " \n\n" << 
+            std::left << std::setw(15) << "Student ID" << std::setw(15) << "First Name" << std::setw(15) << "Last Name" << std::endl;
+
+       // std::cout << std::setw(0);
         for (int i = 0; i < getNumberStudents(); i++)
-         {
-             std::cout << (roster + i)->firstName << " " << (roster + i)->lastName << " " << (roster + i)->studentID << std::endl;
-         }
+        {
+            std::cout << std::setw(15) << (roster + i)->studentID <<  std::setw(15) << (roster + i)->firstName << std::setw(15) << (roster + i)->lastName << std::endl;
+        }
     }
 
     void bubbleSort(StudentInfo* array, int size)
@@ -132,21 +119,32 @@ public:
         }
     }
 
-    void swap(StudentInfo &a, StudentInfo &b)
+    void swap(StudentInfo& a, StudentInfo& b)
     {
         StudentInfo temp = a;
         a = b;
         b = temp;
     }
 
+    // Overloaded +
+    ClassRoom operator+(ClassRoom& right)
+    {
+        int totalStudents = numberStudents + right.numberStudents;
 
-    // display name of class, number of students and student names sorted by last name.
-    //
-    //overloaded+ plus combine number of students with the list of students.
-    // i.e. one class has 10 students, the other has 15, when added together, shoudl have 35 students in the class (dynamic arrays).
-    //StudentInfo studentInfo[students];
-    // private:
-    //    std::array<int, 5> grades;               // array of student grades
-    //    std::array<std::string, 5> studentNames; // array of student names;
+        ClassRoom combinedRoster = ClassRoom(totalStudents, "Combined Classroom");
+
+        // Populate first Roster into combined list
+        for (int i = 0; i < numberStudents; i++)
+        {
+            *(combinedRoster.getRoster() + i) = *(roster + i);
+        }
+
+        // Populate second roster into combined list
+        for (int j = numberStudents, k = 0; j < totalStudents; j++, k++)
+        {
+            *(combinedRoster.getRoster() + j) = *(right.roster + k);
+        }
+        return combinedRoster;
+    }
 };
 
