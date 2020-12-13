@@ -10,6 +10,7 @@
    Notes: Programming Challenge 8
 */
 #include "Package.h"
+using namespace std;
 
 Package::Package(Address addressSender, Address addressRecipient, double weight, double costOunce)
 {
@@ -17,7 +18,6 @@ Package::Package(Address addressSender, Address addressRecipient, double weight,
 	setAddressRecipient(addressRecipient);
 	setWeight(weight);
 	setCostPerOunce(costOunce);
-
 }
 
 void Package::setWeight(double weight)
@@ -25,7 +25,7 @@ void Package::setWeight(double weight)
 	if (weight > 0.0)
 		weightInOunces = weight;
 	else
-		std::cout << "Postive value required for weight. Unable to calculate cost";
+		cout << "Postive value required for weight. Unable to calculate cost";
 }
 
 inline double Package::getWeightInOunces()
@@ -40,7 +40,7 @@ inline void Package::setCostPerOunce(double cost)
 	else
 	{
 		costPerOunce = 0.0;
-		std::cout << "Postive value required for cost. Unable to calculate total cost";
+		cout << "Postive value required for cost. Unable to calculate total cost";
 	}
 }
 

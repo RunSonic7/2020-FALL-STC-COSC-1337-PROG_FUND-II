@@ -10,6 +10,7 @@
    Notes: Programming Challenge 8
 */
 #include "OvernightPackage.h"
+using namespace std;
 
 OvernightPackage::OvernightPackage(Address addressSender, Address addressRecipient, 
 double weight, double costOunce) : Package(addressSender, addressRecipient, weight, costOunce)
