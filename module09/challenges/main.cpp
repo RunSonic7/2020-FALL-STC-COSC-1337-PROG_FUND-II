@@ -1,3 +1,14 @@
+/* Filename: main.cpp
+   Title:  Package Inheritance Hierarchy
+   
+   Name: Juan Mireles II
+   Course: COSC 1337.V01 - Programming Fundamentals II
+   Term: Fall 2020
+   Institution: South Texas College
+   Instructor: Mr. Joseph Perez
+   Due: Sunday, December 6, 2020
+   Notes: Programming Challenge 8
+*/
 #include <iostream>
 #include <iomanip>
 #include "Package.h"
