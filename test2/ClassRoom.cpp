@@ -82,13 +82,18 @@ void ClassRoom::printClassRosterInfo()
 {
     bubbleSort(roster, getNumberStudents());
 
-    std::cout << "===== Class Roster for " << getClassName() << " =====\nNumber of students enrolled: " << getNumberStudents() << " \n\n" <<
-        std::left << std::setw(15) << "Student ID" << std::setw(15) << "First Name" << std::setw(15) << "Last Name" << std::endl;
+    std::cout << "===== Class Roster for " << getClassName() 
+    << " =====\nNumber of students enrolled: " << getNumberStudents() << " \n\n" <<
+        std::left << std::setw(15) << "Student ID" << 
+        std::setw(15) << "First Name" << 
+        std::setw(15) << "Last Name" << std::endl;
 
     // std::cout << std::setw(0);
     for (int i = 0; i < getNumberStudents(); i++)
     {
-        std::cout << std::setw(15) << (roster + i)->studentID << std::setw(15) << (roster + i)->firstName << std::setw(15) << (roster + i)->lastName << std::endl;
+        std::cout << std::setw(15) << (roster + i)->studentID << 
+        std::setw(15) << (roster + i)->firstName << 
+        std::setw(15) << (roster + i)->lastName << std::endl;
     }
 }
 
