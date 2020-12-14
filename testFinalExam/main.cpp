@@ -17,7 +17,6 @@ int main()
 
 	bool isValidInput = false;
 
-
 	// start of program
 	displayTitle();
 
@@ -74,7 +73,6 @@ void displayStatistics(Population& statistics, string title)
 	// Pass by reference, no need to copy data again
 	cout << "\n\nPopulation Statistics - " << title << "\n\n";
 
-	
 	cout << "\tPopulation:\t" << statistics.getPopulation() << endl;
 	cout << fixed << setprecision(3);
 	// round will truncate everything, need to make an int then divide

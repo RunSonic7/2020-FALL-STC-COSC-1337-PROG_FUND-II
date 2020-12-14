@@ -35,6 +35,10 @@ public:
 
 	void setDeaths(int input);
 
+	void reCalculateAll();
+
+	bool checkIfValid(std::string input, int* value);
+
 	unsigned int getPopulation() const
 	{
 		return currentPopulation;
@@ -68,8 +72,6 @@ public:
 	void calculateDeathRate(unsigned int population, unsigned int numDeaths)
 	{  deathRate = numDeaths / (double)population;	}
 
-	void reCalculateAll();
-
 	double getBirthRate() const
 	{
 		return birthRate;
@@ -78,7 +80,6 @@ public:
 	double getDeathRate() const
 	{  return deathRate;	}
 
-	bool checkIfValid(std::string input, int* value);
 };
 
 

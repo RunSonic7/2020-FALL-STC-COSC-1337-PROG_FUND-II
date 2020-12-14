@@ -51,7 +51,7 @@ unsigned int Population::validatePopulation(string population)
 	{
 		cout << "\nPopulation must be positive.\nPlease enter a valid entry: ";
 		cin >> population;
-		validatePopulation(population);
+		input = validatePopulation(population);
 		return input;
 	}
 	else
@@ -74,9 +74,9 @@ unsigned int Population::validateNumBirthsDeaths(string birthDeath, std::string 
 
 	if (input < 0)
 	{
-		cout << "\n\nNumber of << " << statType << " is less than 0.\nPlease enter 0 or a postiive number: ";
+		cout << "\n\nNumber of " << statType << " is less than 0.\nPlease enter 0 or a postiive number: ";
 		cin >> birthDeath;
-		validateNumBirthsDeaths(birthDeath, "Birth");
+		input = validateNumBirthsDeaths(birthDeath, "Birth");
 
 		return input;
 	}
