@@ -1,3 +1,14 @@
+/* Filename: Population.cpp
+   Title:  Implementation File for Population.h
+   
+   Name: Juan Mireles II
+   Course: COSC 1337.V01 - Programming Fundamentals II
+   Term: Fall 2020
+   Institution: South Texas College
+   Instructor: Mr. Joseph Perez
+   Due: Sunday, December 13, 2020 11:59PM CST
+   Notes: Final Exam - Instructions in PDF
+*/
 #include "Population.h"
 using namespace std;
 
