@@ -5,9 +5,13 @@ Plagerism Notice: While this code is available for reference AS IS without warra
 
 Course Description: 
 
-Week 1 -
+Week 1 - No Code
 
 Week 2
+1. Account Test
+
+Programming Challenges
+1. Tic-Tac-Toe
 
 Week 3 
 
