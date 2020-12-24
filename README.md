@@ -38,11 +38,11 @@ Module 7 - Overloaded Functions
 Module 9 - Inheritance
 - C1. Package
 
-Test 1
+Test 1 (Part of Module 5)
 - T1. AddressBook
 
-Test 2
+Test 2 (Module 8)
 - T2. ClassRoom
 
-Final Exam
+Final Exam (Module 10)
 - F1. Population
