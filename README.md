@@ -3,7 +3,8 @@
 
 Plagerism Notice: While this code is available for reference AS IS without warranty, be advised plagiarism can get you into serious trouble both academically and legally.  Think before acting. https://www.turnitin.com/blog/plagiarism-and-programming-how-to-code-without-plagiarizing-2
 
-Course Description: 
+Course Description: This course focuses on the object-oriented programming paradigm, emphasizing the definition and use of classes along with fundamentals of object-oriented design. The course includes basic analysis of algorithms, searching and sorting techniques, and an introduction to software engineering processes. Students will apply techniques for testing and debugging software.
+
 
 Module 1 - No Code
 
